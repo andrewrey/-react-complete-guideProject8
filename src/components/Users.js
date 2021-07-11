@@ -8,6 +8,12 @@ class Users extends Component {
     showUsers: true,
   };
 
+  componentDidUpdate() {
+    if (this.props.users.length === 0) {
+      throw new Error("No users were found!!");
+    }
+  }
+
   toggleUsersHandler = () => {
     this.setState((prevState) => {
       return {
